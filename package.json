@@ -1,0 +1,29 @@
+{
+	"name": "schnosebot-tiersapi",
+	"version": "1.0.0",
+	"description": "extracts data from a google sheet and stores it in a mongodb database",
+	"main": "main.js",
+	"scripts": {
+		"start": "node main.js",
+		"dev": "nodemon main.js"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/Schnose/SchnoseBot-TiersAPI.git"
+	},
+	"author": "Skyzar, AlphaKeks",
+	"license": "GPL-3.0",
+	"bugs": {
+		"url": "https://github.com/Schnose/SchnoseBot-TiersAPI/issues"
+	},
+	"homepage": "https://github.com/Schnose/SchnoseBot-TiersAPI#readme",
+	"dependencies": {
+		"axios": "^0.27.0",
+		"dotenv": "^16.0.0",
+		"mongodb": "^4.5.0",
+		"mongoose": "^6.3.1"
+	},
+	"devDependencies": {
+		"nodemon": "^2.0.15"
+	}
+}
