@@ -1,13 +1,14 @@
 const { default: mongoose } = require("mongoose");
 const main = require("./main");
 const sheetSchema = require("./schemas/sheet-schema");
+const time = Date.now();
 
 mongoose
 	.connect(process.env.DATABASE, {
 		useNewUrlParser: true,
 		useUnifiedTopology: true,
 	})
-	.then(() => console.log("Connected to database."))
+	.then(() => console.log(`[${time}] Connected to database.`))
 	.catch((e) => console.error(e));
 
 async function update() {
@@ -26,7 +27,7 @@ async function update() {
 			await sheetSchema.findOneAndUpdate(data);
 		}
 
-		console.log("Database was updated.");
+		console.log(`[${time}] Database was updated.`);
 	});
 }
 
