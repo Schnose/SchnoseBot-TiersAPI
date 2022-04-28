@@ -30,22 +30,22 @@ async function main() {
 
 	for (let row = 1; row < overview.length; row++) {
 		const map = overview[row];
-		const map_name = map.values[0].formattedValue;
-		const course_int = parseInt(map.values[1].formattedValue);
+		const mapName = map.values[0].formattedValue;
+		const courseInt = parseInt(map.values[1].formattedValue);
 		const jumpstats = map.values[2].formattedValue.toLowerCase() === "yes" ? true : false;
 		const tags = map.values[3].formattedValue?.split(",").map((tag) => tag.trim()) || [];
 
 		let course = "";
-		if (course_int === 0) course = "main";
-		else course = `bonus${course_int}`;
+		if (courseInt === 0) course = "main";
+		else course = `bonus${courseInt}`;
 
-		if (!maps.hasOwnProperty(map_name)) {
-			maps[map_name] = {
+		if (!maps.hasOwnProperty(mapName)) {
+			maps[mapName] = {
 				jsArea: jumpstats,
 			};
 		}
 
-		Object.defineProperty(maps[map_name], course, {
+		Object.defineProperty(maps[mapName], course, {
 			writable: true,
 			enumerable: true,
 			value: {
@@ -65,17 +65,17 @@ async function main() {
 			},
 		});
 
-		kzt_row = sheetKZT[row].values;
-		skz_row = sheetSKZ[row].values;
-		vnl_row = sheetVNL[row].values;
+		kztRow = sheetKZT[row].values;
+		skzRow = sheetSKZ[row].values;
+		vnlRow = sheetVNL[row].values;
 
 		// use parseInt() or ".effectiveValue.numberValue" for integer value
-		maps[map_name][course].KZT.tpTier = kzt_row[2].formattedValue;
-		maps[map_name][course].KZT.proTier = kzt_row[3].formattedValue;
-		maps[map_name][course].SKZ.tpTier = skz_row[2].formattedValue;
-		maps[map_name][course].SKZ.proTier = skz_row[3].formattedValue;
-		maps[map_name][course].VNL.tpTier = vnl_row[2].formattedValue;
-		maps[map_name][course].VNL.proTier = vnl_row[3].formattedValue;
+		maps[mapName][course].KZT.tpTier = kztRow[2].formattedValue;
+		maps[mapName][course].KZT.proTier = kztRow[3].formattedValue;
+		maps[mapName][course].SKZ.tpTier = skzRow[2].formattedValue;
+		maps[mapName][course].SKZ.proTier = skzRow[3].formattedValue;
+		maps[mapName][course].VNL.tpTier = vnlRow[2].formattedValue;
+		maps[mapName][course].VNL.proTier = vnlRow[3].formattedValue;
 	}
 
 	return maps;
