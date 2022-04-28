@@ -10,7 +10,7 @@ const sheetSchema = new mongoose.Schema({
 	tpTier: Number,
 	proTier: Number,
 	tags: Array,
-	jsArea: Boolean,
+	jsArea: String,
 });
 
 module.exports = mongoose.model("tierSheet", sheetSchema);
