@@ -32,7 +32,7 @@ async function main() {
 		const map = overview[row];
 		const map_name = map.values[0].formattedValue;
 		const course_int = parseInt(map.values[1].formattedValue);
-		const jumpstats = map.values[2].formattedValue === "yes" ? true : false;
+		const jumpstats = map.values[2].formattedValue.toLowerCase() === "yes" ? true : false;
 		const tags = map.values[3].formattedValue?.split(",").map((tag) => tag.trim()) || [];
 
 		let course = "";
