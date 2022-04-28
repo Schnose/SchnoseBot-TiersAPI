@@ -22,7 +22,7 @@ async function update() {
 				mapList: maps,
 			}).save();
 		} else {
-			mapList = maps;
+			data.mapList = maps;
 
 			await sheetSchema.findOneAndUpdate(data);
 		}
